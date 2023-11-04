@@ -43,6 +43,18 @@ class Points(commands.Cog):
                 break
 
         await ctx.send(points)
+
+    @commands.command()
+    async def pointsfromname(self, ctx, *, arg):
+        # Get all values from the worksheet
+        data = worksheet.get('B2:E10')
+        points = "Error, this user does not yet have any points"
+        for x in range(len(data)):
+            if data[x][0] == arg:
+                points = (f'{data[x][0]} currently has {data[x][2]} points!')
+                break
+
+        await ctx.send(points)
         
 
 async def setup(bot):
