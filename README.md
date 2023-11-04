@@ -19,9 +19,7 @@ class Test(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command()
-    async def test(self, ctx):
-        await ctx.send("I am not working")
+    *** Listeners go here ***
 
 async def setup(bot):
     await bot.add_cog(Test(bot))
