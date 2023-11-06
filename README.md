@@ -1,3 +1,8 @@
+# Dependancies
+
+```pip install discord.py```
+```pip install gspread```
+
 # DEABot
 
 In order to start DEABot, run the python file `DEABot.py`
