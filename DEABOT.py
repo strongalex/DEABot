@@ -9,14 +9,16 @@ from itertools import cycle
 import numpy as np
 
 #Alpha Greg
-TOKEN = "OTM4MjMwNzUzNTQ2ODc5MDE2.GZmbU6.Xam6CkfHsv4ikGxBHOwZxQjrgq6gHDQgX0RzE8"
+#TOKEN = "OTM4MjMwNzUzNTQ2ODc5MDE2.GZmbU6.Xam6CkfHsv4ikGxBHOwZxQjrgq6gHDQgX0RzE8"
+#MatthewBot
+TOKEN = "MTE3MDg3OTc2OTk3NDQxMTMxNQ.G3xJ0s.rARcBHUXXT3WQObJUozECC2hT8C7PEPF_cOQVE"
 
 bot = commands.Bot(command_prefix = ["-"], case_insensitive=True, intents=discord.Intents.all())
 bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Activity(type = discord.ActivityType.watching, name = "shenanigans"))
+    await bot.change_presence(activity=discord.Activity(type = discord.ActivityType.watching, name = "shenanigans unfold"))
 
 @bot.command(pass_context=True)
 @commands.has_permissions(administrator=True)

@@ -10,7 +10,7 @@ class Test(commands.Cog):
 
     @commands.command()
     async def test(self, ctx):
-        await ctx.send("I am not working")
+        await ctx.send("Please Stop")
 
 async def setup(bot):
     await bot.add_cog(Test(bot))
