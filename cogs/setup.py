@@ -24,7 +24,7 @@ class Setup(commands.Cog):
                 responses = ['Intersting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
                 await message.channel.send(random.choice(responses))
 
-            if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am "):
+            if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am ") or message.content.lower().startswith("i’m "):
                 temp = message.content[message.content.index("m") + 2:]
                 await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
 
