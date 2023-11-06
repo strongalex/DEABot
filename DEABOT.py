@@ -7,11 +7,13 @@ from random import choice
 import os
 from itertools import cycle
 import numpy as np
+import json
 
-#Alpha Greg
-#TOKEN = "OTM4MjMwNzUzNTQ2ODc5MDE2.GZmbU6.Xam6CkfHsv4ikGxBHOwZxQjrgq6gHDQgX0RzE8"
 #MatthewBot
-TOKEN = "MTE3MDg3OTc2OTk3NDQxMTMxNQ.G3xJ0s.rARcBHUXXT3WQObJUozECC2hT8C7PEPF_cOQVE"
+f = open('token.json')
+data = json.load(f)
+TOKEN = data[0]["token"]
+f.close()
 
 bot = commands.Bot(command_prefix = ["-"], case_insensitive=True, intents=discord.Intents.all())
 bot.remove_command("help")
