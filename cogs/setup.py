@@ -16,12 +16,20 @@ class Setup(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        chance = random.randint(1, 100)
-        print(f"{message.author.name}, #{message.channel.name}: {message.content}(Chance: {chance})")
+        if message.author.name != "MatthewBot":
+            chance = random.randint(1, 100)
+            print(f"{message.author.name}, #{message.channel.name}: {message.content}(Chance: {chance})")
 
-        if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am "):
-            temp = message.content[message.content.index("m") + 2:]
-            await message.channel.send(f"Hi {temp}, I am Matthew, pleasure to meet you")
+            if chance > 95:
+                responses = ['Intersting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
+                await message.channel.send(random.choice(responses))
+
+            if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am "):
+                temp = message.content[message.content.index("m") + 2:]
+                await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
+
+            if "crazy" in message.content.lower():
+                await message.reply("Crazy! I was cra... wait no no no")
 
 async def setup(bot):
     await bot.add_cog(Setup(bot))
