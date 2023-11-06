@@ -1,6 +1,7 @@
 # Dependancies
 
 ```pip install discord.py```
+
 ```pip install gspread```
 
 # DEABot
