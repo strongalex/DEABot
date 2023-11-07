@@ -1,8 +1,17 @@
-# Dependancies
+# Setup
 
+Install these dependencies and python
 ```pip install discord.py```
 
 ```pip install gspread```
+
+In order to use any gspread actions, you will need to import a google api key. Take this key json and put it into the main directory and name it ```key.json```
+
+In order to run it on your own bot, you have to create a file called ```token.json``` and add your own bot token to it in the format of:
+
+```[
+    {"token" : "YOUR TOKEN HERE"}
+]```
 
 # DEABot
 
