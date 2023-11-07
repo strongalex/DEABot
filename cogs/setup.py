@@ -21,7 +21,7 @@ class Setup(commands.Cog):
             print(f"{message.author.name}, #{message.channel.name}: {message.content}(Chance: {chance})")
 
             if chance > 95:
-                responses = ['Intersting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
+                responses = ['Interesting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
                 await message.channel.send(random.choice(responses))
 
             if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am ") or message.content.lower().startswith("i’m "):

@@ -15,6 +15,7 @@ class Help(commands.Cog):
         embed.add_field(name="**-points**", value="Returns the amount of points for a given discord username", inline=False)
         embed.add_field(name="**-pointsfromname**", value="Returns the amount of points for a given name", inline=False)
         embed.add_field(name="**-leaderboard**", value="Reutrns the top 10 amount of points", inline=False)
+        embed.add_field(name="**-sin**", value="Returns a random negative comment when given a name", inline=False)
         #embed.add_field(name="**-mostpoints**", value="Returns the person with the most amount of points", inline=False)
 
         await ctx.send(embed=embed)
