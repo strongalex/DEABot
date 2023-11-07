@@ -9,9 +9,11 @@ In order to use any gspread actions, you will need to import a google api key. T
 
 In order to run it on your own bot, you have to create a file called ```token.json``` and add your own bot token to it in the format of:
 
-```[
+```
+[
     {"token" : "YOUR TOKEN HERE"}
-]```
+]
+```
 
 # DEABot
 
