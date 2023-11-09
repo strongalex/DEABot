@@ -82,11 +82,11 @@ class Points(commands.Cog):
 
     @commands.command()
     async def leaderboard(self, ctx):
-        leaderboard_range = 10
+        leaderboard_range = 11
         # Select the specific worksheet (tab) within the Google Sheet
         worksheet_name = 'Leaderboard'
         worksheet = sheet.worksheet(worksheet_name)
-        data = worksheet.get(f'B2:E{leaderboard_range}')
+        data = worksheet.get(f'B2:E')
         trimmed_data = []
         for x in range(len(data)):
             if data[x][0] != "":
