@@ -105,7 +105,7 @@ class Points(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author.bot:
+        if message.author.bot or message.channel.id == 1152247303017615501:
             return
         # Select the specific worksheet (tab) within the Google Sheet
         worksheet_name = 'Bot'
