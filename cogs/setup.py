@@ -24,12 +24,16 @@ class Setup(commands.Cog):
                 responses = ['Interesting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
                 await message.channel.send(random.choice(responses))
 
-            if message.content.lower().startswith("i'm ") or message.content.lower().startswith("im ") or message.content.lower().startswith("i am ") or message.content.lower().startswith("i’m "):
-                temp = message.content[message.content.index("m") + 2:]
-                await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
+            imList = ["im", "i'm", "i am", "sono", "soy", "je suis", "ich bin", "i’m" ]
+            for x in imList:
+                if message.content.lower().startswith(f"{x} "):
+                    temp = message.content[len(x) + 1:]
+                    await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
 
             if "crazy" in message.content.lower():
                 await message.reply("Crazy! I was cra... wait no no no")
+    
+    
 
 async def setup(bot):
     await bot.add_cog(Setup(bot))
