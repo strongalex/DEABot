@@ -24,9 +24,9 @@ class Setup(commands.Cog):
                 responses = ['Interesting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off']
                 await message.channel.send(random.choice(responses))
 
-            imList = ["im", "i'm", "i am", "sono", "soy", "je suis", "ich bin", "i’m" ]
+            imList = ["im", "i'm", "i am", "sono", "soy", "je suis", "ich bin", "i’m", "わたしわ", "tôi là", "je'susi", "eu sou", "אני"]
             for x in imList:
-                if message.content.lower().startswith(f"{x} "):
+                if message.content.lower().startswith(f"{x} ") or message.content.lower().startswith(f"­{x} "):
                     temp = message.content[len(x) + 1:]
                     await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
 
