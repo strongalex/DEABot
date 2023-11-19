@@ -95,10 +95,11 @@ class Points(commands.Cog):
         board = "**Current Leaderboard!**\n"
 
         for x in range(len(sorted_data)):
-            if sorted_data[x][2] == "":
-                board += f'{x}. {sorted_data[x][0]} with {sorted_data[x][3]} points!\n'
-            else:
-                board += f'{x}. <@{sorted_data[x][2]}> with {sorted_data[x][3]} points!\n'
+            #commented out is @ing discord accounts
+            #if sorted_data[x][2] == "":
+            board += f'{x}. {sorted_data[x][0]} with {sorted_data[x][3]} points!\n'
+            #else:
+            #    board += f'{x}. <@{sorted_data[x][2]}> with {sorted_data[x][3]} points!\n'
 
         
         await ctx.send(board)
