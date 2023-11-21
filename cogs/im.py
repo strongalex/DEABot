@@ -47,7 +47,7 @@ class Im(commands.Cog):
         for x in imList:
             if message.content.lower().startswith(f"{x} "):
                 temp = message.content[len(x) + 1:]
-                response_message = await message.reply(f"Hi {temp}, I am Matthew, pleasure to meet you")
+                response_message = await message.reply(f"Hi {temp}, I am Matthew")
                 await response_message.add_reaction("🤝")
                 responded_messages.append((response_message.id, 0, message.author.name, message.id, message.channel.id, message.author.id))
 
@@ -93,9 +93,9 @@ class Im(commands.Cog):
                         if str(reaction.emoji) == "🤝":
                             async for user in reaction.users():
                                 if user.id == x[5]:
-                                    await message.reply("Nice to meet you")
+                                    await message.reply("Pleasure to meet you!")
                                     reacted = True
-                    if not reacted:
+                    if not reacted: 
                         # Select the specific worksheet (tab) within the Google Sheet
                         worksheet_name = 'Bot'
                         worksheet = sheet.worksheet(worksheet_name)

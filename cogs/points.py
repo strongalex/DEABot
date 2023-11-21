@@ -104,6 +104,33 @@ class Points(commands.Cog):
         
         await ctx.send(board)
 
+    @commands.command()
+    async def profile(self, ctx, *, additional_text: str = None):
+        # Select the specific worksheet (tab) within the Google Sheet
+        worksheet_name = 'Leaderboard'
+        worksheet = sheet.worksheet(worksheet_name)
+        data = worksheet.get(f'B2:G')
+
+        for x in range(len(data)):
+            if additional_text is None:
+                if data[x][1] == ctx.author.name:
+                    embed = discord.Embed(title=f"**{data[x][0]}'s Profile**", color=ctx.author.color)
+                    embed.set_thumbnail(url=ctx.message.author.avatar.url)
+                    embed.add_field(name="Points", value=data[x][3], inline=False)
+                    embed.add_field(name="Good Comments", value=data[x][4])
+                    embed.add_field(name="Bad Comments", value=data[x][5])
+                    await ctx.send(embed=embed)
+                    return
+            else:
+                if data[x][0] == additional_text:
+                    embed = discord.Embed(title=f"**{data[x][0]}'s Profile**", color=ctx.author.color)
+                    embed.add_field(name="Points", value=data[x][3], inline=False)
+                    embed.add_field(name="Good Comments", value=data[x][4])
+                    embed.add_field(name="Bad Comments", value=data[x][5])
+                    await ctx.send(embed=embed)
+                    return
+        
+
 
   
 async def setup(bot):
