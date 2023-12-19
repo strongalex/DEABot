@@ -27,14 +27,16 @@ sheet = gc.open(spreadsheet_name)
 
 def makeData(input, name):
         #print("making data")
-        data = [{"time": float(input[0][0].replace(",", "")) - 0.005, "points": 0}]
+        data = [{"time": float(input[0][5].replace(",", "")) - 0.005, "points": 0, "label":input[0][0][:input[0][0].index(" ")]}]
         i = 0
 
         for x in range(len(input)):
             #print(input[x][2])
             if input[x][2].lower() == name.lower():
-                data.append({"time":float(input[x][0].replace(",", "")), "points":data[i]['points'] + int(input[x][3])})
+                
+                data.append({"time":float(input[x][5].replace(",", "")), "points":data[i]['points'] + int(input[x][3]), "label":input[x][0][:input[x][0].index(" ")]})
                 i += 1
+            #print(data)
         return data
 
 
@@ -48,19 +50,24 @@ class plot(commands.Cog):
         worksheet_name = 'Responses'
         worksheet = sheet.worksheet(worksheet_name)
         # Get all values from the worksheet
-        rawdata = worksheet.get('A2:D')
+        rawdata = worksheet.get('A2:F')
+
+        print("hello")
 
         data = makeData(rawdata, arg)
 
-        #print(data)
+        print(data)
 
         xData = []
         yData = []
+        xLabel = []
 
         for x in data:
             xData.append(x['time'])
             yData.append(x['points'])
+            xLabel.append(x['label'])
 
+        print(xLabel)
         # Create a new figure and axes for each graph
         fig, ax = plt.subplots()
 
@@ -68,7 +75,11 @@ class plot(commands.Cog):
         ax.set_xlabel('Time')
         ax.set_ylabel('Points')
         ax.axhline(0, color='black', linestyle='--')
+        ax.set_xticks(xData)
+        ax.set_xticklabels(xLabel, rotation=45, ha='right')
         ax.set_title(f"{arg}'s Graph")
+
+        plt.tight_layout()
 
         # Save the graph to a file
         file_name = f"{arg.replace(' ', '')}graph.png"
@@ -85,19 +96,18 @@ class plot(commands.Cog):
         os.remove(file_name)
 
     @commands.command()
-    async def plotAll(self, ctx, legend=''):
+    async def plotAll(self, ctx, *, legend=''):
         # Select the specific worksheet (tab) within the Google Sheet
         worksheet_name = 'Responses'
         worksheet = sheet.worksheet(worksheet_name)
         # Get all values from the worksheet
-        rawdata = worksheet.get('A2:D')
+        rawdata = worksheet.get('A2:F')
 
         valid = []
 
         for x in rawdata:
-            if x[2] not in valid:
+            if x[2] not in valid and x[2] not in legend:
                 valid.append(x[2])
-
 
         # Create a new figure and axes for each graph
         fig, ax = plt.subplots(figsize=(10, 6))
@@ -107,10 +117,12 @@ class plot(commands.Cog):
 
             xData = []
             yData = []
+            xLabel = []
 
             for x in data:
                 xData.append(x['time'])
                 yData.append(x['points'])
+                xLabel.append(x['label'])
 
             ax.plot(xData, yData, label=name)
 
@@ -119,7 +131,7 @@ class plot(commands.Cog):
         ax.set_ylabel('Points')
         ax.axhline(0, color='black', linestyle='--')
         ax.set_title(f"Everyones's Graph")
-        if legend.lower() == "legend":
+        if "legend" in legend.lower():
             ax.legend(loc='upper right')
 
         # Save the graph to a file

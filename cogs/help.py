@@ -18,7 +18,7 @@ class Help(commands.Cog):
         embed.add_field(name="**-sin {name}**", value="Returns a random negative comment when given a name", inline=False)
         embed.add_field(name="**-profile ({name})**", value="Returns either a specified name or the users points and comments", inline=False)
         embed.add_field(name="**-plot {name}**", value="Returns a plot of the specified name", inline=False)
-        embed.add_field(name="**-plotAll (legend)**", value="Returns a plot of everyones points, add 'legend' to the command to display a legend for the graph", inline=False)
+        embed.add_field(name="**-plotAll (legend)**", value="Returns a plot of everyones points, add 'legend' to the command to display a legend for the graph, add a name after to exlucde that person from the graph", inline=False)
         #embed.add_field(name="**-mostpoints**", value="Returns the person with the most amount of points", inline=False)
 
         await ctx.send(embed=embed)
