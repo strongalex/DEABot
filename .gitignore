@@ -2,3 +2,4 @@
 key.json
 token.json
 alphatoken2.json
+*.pyc
