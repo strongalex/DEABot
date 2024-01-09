@@ -20,7 +20,7 @@ class Setup(commands.Cog):
             chance = random.randint(1, 100)
             print(f"{message.author.name}, #{message.channel.name}: {message.content}(Chance: {chance})")
 
-            if chance > 95:
+            if chance > 98:
                 responses = ['Interesting', 'Sure', 'The effect resolves', 'Shutdown prodcedure: Lights off', 'Fascinating']
                 await message.channel.send(random.choice(responses))
 

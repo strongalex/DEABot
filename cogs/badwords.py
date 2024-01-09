@@ -41,7 +41,7 @@ class Badwords(commands.Cog):
         # Get all values from the worksheet
         data = worksheet.get('A2:D')
 
-        badwordList = ['fuck', 'shit', 'ass', 'cunt', 'bitch', 'crap', 'dick', 'asshole', 'fuc']
+        badwordList = ['fuck', 'shit', 'ass', 'cunt', 'bitch', 'crap', 'dick', 'asshole', 'fuc', '<:F_:1190878783125848125> uck', '<:F_:1190878783125848125>uck']
         matthewisms = ['*gasp*,', 'Wowzers!', 'Geeze louise,', 'Oh my!', 'Oh geez,']
         badwords = 0
         for x in range(len(badwordList)):
