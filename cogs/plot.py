@@ -47,7 +47,7 @@ class plot(commands.Cog):
     @commands.command()
     async def plot(self, ctx, *, arg):
         # Select the specific worksheet (tab) within the Google Sheet
-        worksheet_name = 'Responses'
+        worksheet_name = 'ResponseProcessed'
         worksheet = sheet.worksheet(worksheet_name)
         # Get all values from the worksheet
         rawdata = worksheet.get('A2:F')
@@ -98,7 +98,7 @@ class plot(commands.Cog):
     @commands.command()
     async def plotAll(self, ctx, *, legend=''):
         # Select the specific worksheet (tab) within the Google Sheet
-        worksheet_name = 'Responses'
+        worksheet_name = 'ResponseProcessed'
         worksheet = sheet.worksheet(worksheet_name)
         # Get all values from the worksheet
         rawdata = worksheet.get('A2:F')

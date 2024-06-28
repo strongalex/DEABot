@@ -95,7 +95,12 @@ class Im(commands.Cog):
                                 if user.id == x[5]:
                                     await message.reply("Pleasure to meet you!")
                                     reacted = True
-                    if not reacted: 
+                        if str(reaction.emoji) == "👊":
+                            async for user in reaction.users():
+                                if user.id == x[5]:
+                                    await message.reply("HOW DARE YOU! I DO NOT ACCEPT FIST BUMPS")
+                                    fistreacted = True
+                    if not reacted or fistreacted: 
                         # Select the specific worksheet (tab) within the Google Sheet
                         worksheet_name = 'Bot'
                         worksheet = sheet.worksheet(worksheet_name)
